@@ -1,5 +1,5 @@
-const CACHE="mosque-mobile-v8";
-const APP_SHELL=["/","/mobile-app.html","/manifest.webmanifest","/app-icon.svg","/quran/index.json","/vendor/cairo/400.css","/vendor/cairo/600.css","/vendor/cairo/700.css","/vendor/cairo/800.css"];
+const CACHE="mosque-mobile-v8-1";
+const APP_SHELL=["/","/app","/mobile-app.html","/manifest.webmanifest","/app-icon.svg","/quran/index.json","/vendor/cairo/400.css","/vendor/cairo/600.css","/vendor/cairo/700.css","/vendor/cairo/800.css"];
 
 self.addEventListener("install",event=>{
   event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(APP_SHELL)).then(()=>self.skipWaiting()));

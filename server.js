@@ -115,7 +115,7 @@ app.get("/api/health", async (_req, res) => {
   const db = await databaseStatus();
   res.status(db.ok ? 200 : 503).json({
     ok: db.ok,
-    version: "8.0.0-mobile",
+    version: "8.1.0-mobile",
     database: db.mode,
     quran: "offline",
     uptime: Math.round(process.uptime())
@@ -166,6 +166,16 @@ io.on("connection", socket => socket.emit("stateUpdate", fullState()));
 app.get("/", (req, res) => {
   res.set("Cache-Control", "no-store");
   res.sendFile(path.join(__dirname, "public", "mobile-app.html"));
+});
+
+app.get("/app", (_req, res) => {
+  res.set("Cache-Control", "no-store");
+  res.sendFile(path.join(__dirname, "public", "mobile-app.html"));
+});
+
+app.get("/mosque-screen", (_req, res) => {
+  res.set("Cache-Control", "no-store");
+  res.sendFile(path.join(__dirname, "public", "tv-display.html"));
 });
 
 app.use((error, _req, res, _next) => {
