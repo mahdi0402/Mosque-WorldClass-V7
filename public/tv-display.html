@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>مسجد النور | الشاشة الذكية</title>
+  <style>
+    @import url("/vendor/cairo/400.css");@import url("/vendor/cairo/600.css");@import url("/vendor/cairo/700.css");@import url("/vendor/cairo/800.css");@import url("/vendor/cairo/900.css");
+    :root{--violet:#8b5cf6;--violet2:#4c1d95;--cyan:#63e6ff;--gold:#f5c86b;--glass:rgba(7,13,34,.72);--line:rgba(255,255,255,.14)}
+    *{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;overflow:hidden;font-family:"Cairo",Tahoma,Arial,sans-serif;color:#fff;background:#050817}
+    body:after{content:"";position:fixed;inset:0;pointer-events:none;background:radial-gradient(circle at 50% 35%,transparent 0 42%,rgba(0,0,0,.35) 82%,rgba(0,0,0,.7));z-index:8}
+    .scene{height:100%;position:relative;display:grid;grid-template-rows:auto 1fr auto auto;gap:1.6vh;padding:1.8vh 2vw 0;background:linear-gradient(180deg,#050817 0%,#0a1e43 46%,#3e3568 70%,#e19b83 100%)}
+    .stars,.stars:before,.stars:after{position:absolute;inset:0;content:"";pointer-events:none;background-image:radial-gradient(#fff 0 1px,transparent 1.5px);background-size:71px 71px;opacity:.5;animation:drift 50s linear infinite}.stars:before{background-size:113px 113px;transform:translate(25px,16px);opacity:.35}.stars:after{background-size:173px 173px;transform:translate(60px,45px);opacity:.7}@keyframes drift{to{background-position:300px 140px}}
+    .moon{position:absolute;top:10vh;right:9vw;width:8vw;aspect-ratio:1;border-radius:50%;background:#fdf5d7;box-shadow:0 0 35px #fff7,0 0 100px #d9e7ff44}.moon:after{content:"";position:absolute;inset:-7px 14px 7px -14px;border-radius:50%;background:#07132d}
+    .silhouette{position:absolute;bottom:8.5vh;left:0;right:0;height:21vh;background:#050817;clip-path:polygon(0 74%,5% 63%,8% 67%,13% 48%,17% 68%,23% 72%,28% 52%,33% 70%,39% 67%,44% 47%,49% 66%,54% 71%,61% 58%,66% 70%,72% 61%,78% 69%,84% 44%,90% 67%,96% 59%,100% 70%,100% 100%,0 100%);z-index:1}
+    .top{z-index:3;display:grid;grid-template-columns:1fr 1.35fr 1fr;align-items:start;gap:2vw}.brand{text-align:center}.brandline{font-size:clamp(24px,2.5vw,48px);font-weight:900;text-shadow:0 4px 20px #000}.brandline span{color:#e1d5ff}.location{font-size:clamp(12px,1vw,19px);color:#c8d5f0;margin-top:.4vh}
+    .clock-card{margin-top:1.1vh;background:linear-gradient(135deg,rgba(72,35,142,.9),rgba(112,67,177,.84));border:1px solid #ffffff32;border-radius:1.3vw;padding:1vh 1.8vw;box-shadow:0 18px 60px #0008,inset 0 1px #fff3;backdrop-filter:blur(18px)}
+    .clock{direction:ltr;font-size:clamp(48px,6.1vw,118px);line-height:.95;font-weight:900;font-variant-numeric:tabular-nums;letter-spacing:.03em;text-shadow:0 5px 14px #240a55}.dates{display:flex;justify-content:center;gap:1vw;margin-top:.8vh;font-size:clamp(12px,1.25vw,24px);color:#f2eaff}.next-strip{margin:auto;width:87%;display:flex;justify-content:center;gap:.6vw;padding:.8vh;border-radius:0 0 1vw 1vw;background:rgba(3,7,18,.85);font-size:clamp(13px,1.4vw,27px);font-weight:800;box-shadow:0 12px 35px #0007}.next-strip b{color:var(--gold)}
+    .side{margin-top:5.2vh;text-align:center;padding:1.8vh 1vw;border-radius:1.4vw;background:linear-gradient(145deg,rgba(7,12,32,.62),rgba(20,31,63,.35));border:1px solid var(--line);backdrop-filter:blur(14px);box-shadow:0 15px 45px #0005}.side .icon{font-size:2.2vw}.side label{display:block;color:#c7d4ec;font-size:clamp(13px,1.25vw,25px)}.side strong{display:block;font-size:clamp(31px,3.8vw,74px);line-height:1.05;margin:.5vh}.side small{color:#b8c6df;font-size:clamp(11px,.9vw,18px)}
+    .middle{z-index:3;display:flex;align-items:flex-end}.prayers{width:100%;display:grid;grid-template-columns:repeat(5,1fr);gap:1.2vw;direction:ltr}.prayer{direction:rtl;position:relative;text-align:center;padding:1.5vh .8vw 1.2vh;border-radius:1.35vw;background:linear-gradient(180deg,rgba(8,14,34,.74),rgba(3,8,20,.9));border:1px solid var(--line);box-shadow:0 18px 45px #0008;backdrop-filter:blur(14px);overflow:hidden;transition:.4s}.prayer:before{content:"";position:absolute;left:0;right:0;top:0;height:3px;background:linear-gradient(90deg,transparent,#fff6,transparent)}.prayer.active{transform:translateY(-1.4vh) scale(1.035);background:linear-gradient(180deg,rgba(115,70,183,.9),rgba(42,20,89,.96));border-color:#cfb5ff;box-shadow:0 0 0 1px #b895ff55,0 22px 55px #2d0c5dbb,0 0 40px #a855f766}.prayer-name{font-size:clamp(18px,1.9vw,37px);font-weight:700}.prayer-time{direction:ltr;font-size:clamp(36px,4.2vw,82px);font-weight:900;line-height:1.05;margin:.5vh 0}.iqamah{display:inline-flex;align-items:center;gap:.4vw;padding:.45vh .75vw;border-radius:99px;background:#ffffff12;color:#e7ddff;font-size:clamp(11px,1vw,20px)}.iqamah b{color:var(--gold)}
+    .info-row{z-index:4;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:1vw;margin-top:.2vh;padding:.8vh 1vw;border-radius:1vw 1vw 0 0;background:rgba(3,7,18,.9);border:1px solid #ffffff1c}.live{display:flex;align-items:center;gap:.5vw;color:#8cf5c1;font-weight:700}.live i{width:9px;height:9px;border-radius:50%;background:#4ade80;box-shadow:0 0 13px #4ade80;animation:pulse 1.4s infinite}@keyframes pulse{50%{opacity:.35}}.verse{text-align:center;color:#dbe4f5;font-size:clamp(12px,1.1vw,21px)}.weather{direction:ltr;color:#eef6ff}
+    .ticker{z-index:5;height:7.5vh;margin:0 -2vw;display:flex;align-items:center;background:#02040d;border-top:2px solid #7c3aed;overflow:hidden}.ticker-label{height:100%;min-width:12vw;display:grid;place-items:center;background:linear-gradient(135deg,#6d28d9,#4c1d95);font-size:clamp(13px,1.3vw,25px);font-weight:900}.ticker-window{overflow:hidden;flex:1}.ticker-text{direction:rtl;white-space:nowrap;font-size:clamp(16px,1.8vw,35px);font-weight:800;animation:ticker 24s linear infinite;padding-right:100%}@keyframes ticker{to{transform:translateX(100%)}}.controls{position:absolute;z-index:10;top:12px;left:12px;display:flex;gap:8px}.controls a,.controls button{border:1px solid #ffffff25;background:#04091699;color:#fff;border-radius:10px;padding:7px 11px;text-decoration:none;cursor:pointer;opacity:.42}.controls a:hover,.controls button:hover{opacity:1}.overlay{position:fixed;z-index:20;inset:0;display:none;place-items:center;text-align:center;background:radial-gradient(circle,#351575,#070b1c 62%)}.overlay.show{display:grid}.overlay .call{font-size:clamp(70px,12vw,230px);font-weight:900}.overlay p{font-size:3vw}.overlay .bigcount{direction:ltr;font-size:7vw;color:var(--gold);font-weight:900}
+    @media(max-width:900px){.top{grid-template-columns:.8fr 1.5fr .8fr}.side{padding:1vh .5vw}.middle{align-items:center}.prayers{gap:.7vw}.info-row{display:none}}
+  </style>
+</head>
+<body>
+  <main class="scene">
+    <div class="stars"></div><div class="moon"></div><div class="silhouette"></div>
+    <div class="controls"><button onclick="document.documentElement.requestFullscreen?.()">⛶</button><a href="/admin.html">⚙</a><a href="/mobile-app.html">▯</a></div>
+    <header class="top">
+      <aside class="side"><div class="icon">☀</div><label>الشروق</label><strong id="sunrise">--:--</strong><small>الإمساك <span id="imsak">--:--</span></small></aside>
+      <section class="brand">
+        <div class="brandline">☪ <span id="mosque">مسجد النور</span> ☪</div><div id="city" class="location">الجديدة - المكر</div>
+        <div class="clock-card"><div id="clock" class="clock">00:00:00</div><div class="dates"><span id="hijri"></span><i>•</i><span id="date"></span></div></div>
+        <div class="next-strip">الصلاة القادمة: <b id="nextName">--</b> بعد <span id="nextCount">00:00:00</span></div>
+      </section>
+      <aside class="side"><div class="icon">🕌</div><label>صلاة الجمعة</label><strong id="jumuah">13:00</strong><small>الإقامة <span id="jumuahIqamah">13:15</span></small></aside>
+    </header>
+    <section class="middle"><div id="prayers" class="prayers"></div></section>
+    <div class="info-row"><span class="live"><i></i> متصل</span><div class="verse">﴿ إِنَّ الصَّلَاةَ كَانَتْ عَلَى الْمُؤْمِنِينَ كِتَابًا مَوْقُوتًا ﴾</div><span class="weather">الجديدة المكر</span></div>
+    <footer class="ticker"><div class="ticker-label">إعلان المسجد</div><div class="ticker-window"><div id="announcement" class="ticker-text"></div></div></footer>
+  </main>
+  <section id="prayerOverlay" class="overlay"><div><div id="overlayTitle" class="call">حان وقت الصلاة</div><p id="overlayText"></p><div id="overlayCount" class="bigcount"></div></div></section>
+  <script src="/socket.io/socket.io.js"></script>
+  <script>
+    const names={Fajr:"الفجر",Dhuhr:"الظهر",Asr:"العصر",Maghrib:"المغرب",Isha:"العشاء"}, keys=Object.keys(names);
+    const $=id=>document.getElementById(id), sec=t=>{const[h,m]=t.split(":").map(Number);return h*3600+m*60}, pad=n=>String(n).padStart(2,"0");
+    let state=null,lastMinute="";
+    function plus(t,min){let x=sec(t)+min*60;return `${pad(Math.floor(x/3600)%24)}:${pad(Math.floor(x%3600/60))}`}
+    function render(s){state=s;$("mosque").textContent=s.name;$("city").textContent=s.city;$("sunrise").textContent=s.timings.Sunrise;$("imsak").textContent=s.timings.Fajr;$("jumuah").textContent=s.jumuah;$("jumuahIqamah").textContent=s.jumuahIqamah;$("announcement").textContent=`${s.announcement}     ✦     ${s.secondaryAnnouncement||""}`;
+      $("prayers").innerHTML=keys.map(k=>`<article class="prayer" data-key="${k}"><div class="prayer-name">${names[k]}</div><div class="prayer-time">${s.timings[k]}</div><div class="iqamah">الإقامة <b>${plus(s.timings[k],s.iqamahOffsets[k])}</b> · +${s.iqamahOffsets[k]}</div></article>`).join("");tick()}
+    function tick(){const d=new Date(),now=d.getHours()*3600+d.getMinutes()*60+d.getSeconds();$("clock").textContent=[d.getHours(),d.getMinutes(),d.getSeconds()].map(pad).join(":");$("date").textContent=d.toLocaleDateString("ar-EG",{weekday:"long",day:"numeric",month:"long",year:"numeric"});$("hijri").textContent=new Intl.DateTimeFormat("ar-SA-u-ca-islamic",{day:"numeric",month:"long",year:"numeric"}).format(d);if(!state)return;
+      let next=keys.find(k=>sec(state.timings[k])>now),extra=0;if(!next){next="Fajr";extra=86400}const diff=sec(state.timings[next])+extra-now;$("nextName").textContent=names[next];$("nextCount").textContent=[Math.floor(diff/3600),Math.floor(diff%3600/60),diff%60].map(pad).join(":");document.querySelectorAll(".prayer").forEach(x=>x.classList.toggle("active",x.dataset.key===next));
+      const current=keys.find(k=>Math.abs(sec(state.timings[k])-now)<60), iq=keys.find(k=>Math.abs(sec(state.timings[k])+state.iqamahOffsets[k]*60-now)<60);const mark=`${d.getHours()}:${d.getMinutes()}`;
+      if((current||iq)&&lastMinute!==mark){lastMinute=mark;showOverlay(iq?"تقام الصلاة الآن":`حان الآن وقت ${names[current]}`,iq?"استووا واعتدلوا":"حي على الصلاة",iq?60:45)}
+    }
+    function showOverlay(title,text,seconds){$("overlayTitle").textContent=title;$("overlayText").textContent=text;$("prayerOverlay").classList.add("show");let n=seconds;$("overlayCount").textContent=n;const timer=setInterval(()=>{n--;$("overlayCount").textContent=n;if(n<=0){clearInterval(timer);$("prayerOverlay").classList.remove("show")}},1000)}
+    fetch("/api/state").then(r=>r.json()).then(render);const socket=io();socket.on("stateUpdate",render);setInterval(tick,1000);
+  </script>
+</body>
+</html>

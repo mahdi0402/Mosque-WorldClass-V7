@@ -1,0 +1,30 @@
+services:
+  - type: web
+    name: mosque-worldclass-v7
+    runtime: node
+    region: frankfurt
+    plan: free
+    buildCommand: npm ci
+    startCommand: npm start
+    healthCheckPath: /api/health
+    autoDeployTrigger: commit
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: NODE_VERSION
+        value: "22"
+      - key: ADMIN_PIN
+        sync: false
+      - key: DATABASE_URL
+        fromDatabase:
+          name: mosque-worldclass-db
+          property: connectionString
+
+databases:
+  - name: mosque-worldclass-db
+    databaseName: mosque_worldclass
+    user: mosque_admin
+    region: frankfurt
+    plan: free
+    postgresMajorVersion: "18"
+    ipAllowList: []

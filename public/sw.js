@@ -1,0 +1,1 @@
+self.addEventListener("push",event=>{const data=event.data?event.data.json():{};event.waitUntil(self.registration.showNotification(data.title||"تنبيه الصلاة",{body:data.message||"حان الآن موعد الأذان",icon:"/icon.png",badge:"/badge.png",dir:"rtl",vibrate:[200,100,200]}))});
