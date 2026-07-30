@@ -2,7 +2,7 @@ services:
   - type: web
     name: mosque-worldclass-v7
     runtime: node
-    region: frankfurt
+    region: virginia
     plan: free
     buildCommand: npm ci
     startCommand: npm start
@@ -17,14 +17,5 @@ services:
         sync: false
       - key: DATABASE_URL
         fromDatabase:
-          name: mosque-worldclass-db
+          name: mohanad-barbershop-db
           property: connectionString
-
-databases:
-  - name: mosque-worldclass-db
-    databaseName: mosque_worldclass
-    user: mosque_admin
-    region: frankfurt
-    plan: free
-    postgresMajorVersion: "18"
-    ipAllowList: []
