@@ -1,4 +1,4 @@
-const CACHE="mosque-mobile-v8-1";
+const CACHE="mosque-mobile-v8-2";
 const APP_SHELL=["/","/app","/mobile-app.html","/manifest.webmanifest","/app-icon.svg","/quran/index.json","/vendor/cairo/400.css","/vendor/cairo/600.css","/vendor/cairo/700.css","/vendor/cairo/800.css"];
 
 self.addEventListener("install",event=>{

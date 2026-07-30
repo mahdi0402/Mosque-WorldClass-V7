@@ -115,7 +115,7 @@ app.get("/api/health", async (_req, res) => {
   const db = await databaseStatus();
   res.status(db.ok ? 200 : 503).json({
     ok: db.ok,
-    version: "8.1.0-mobile",
+    version: "8.2.0-mobile",
     database: db.mode,
     quran: "offline",
     uptime: Math.round(process.uptime())
