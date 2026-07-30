@@ -1,0 +1,22 @@
+{
+  "name": "مسجد النور",
+  "short_name": "مسجد النور",
+  "description": "مواقيت الصلاة والقرآن الكريم والأذكار واتجاه القبلة",
+  "lang": "ar",
+  "dir": "rtl",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "display_override": ["window-controls-overlay", "standalone"],
+  "orientation": "portrait-primary",
+  "background_color": "#ffffff",
+  "theme_color": "#5b16a8",
+  "icons": [
+    {
+      "src": "/app-icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
